@@ -1,17 +1,12 @@
+# Load all libraries needed for both ui.r and server.r
+
 library(dplyr)
 library(shiny)
 library(googleVis)
-#library(googleCharts)
-
 
 # Read in data
 data <- readRDS("data/HumDevCountryRegion.rds")
-
-# set up world regions for color-by
-data$Region <- as.factor(data$PrimaryRegion)
-
-
-
+# change columns names to user-friendly names
 colnames(data) <-
        c("Country",
           "Human Development Rank",
@@ -20,7 +15,6 @@ colnames(data) <-
           "Education Index",
           "GNI Index",
           "Human Development Group",
-          "PrimaryRegion",
           "Region")
 
 

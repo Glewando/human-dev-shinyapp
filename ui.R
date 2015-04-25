@@ -47,17 +47,30 @@ shinyUI(fluidPage(theme = "bootstrap.css",
 
                 # application instructions
                         p("To explore the data, select three human development
-                        indicators (X, Y, bubble size) to generate a bubble chart.
+                        indicators (Y, X, & Z) to generate a bubble chart.
                         The bubble chart shows indicator Y as a function of indicator
                         X (also stated in the chart title). Each bubble represents
                         a country. The bubble color indicates world region, and
-                        the bubble size corresponds to the value of the third human
-                        development indicator."),
+                        the bubble size corresponds to the value indicator Z."),
                         p("Hover over a bubble to see the complete information for
                           a country."),
                         p("The chart is moveable, zoom-able, and reactive to your
                           choices. So, go ahead and explore as many indicator combinations
                           as you can think of! Explore the data!!"),
+
+
+                selectInput("yvar",
+                            label = "HD indicator (Y)",
+                            choices = c("Human Development Rank" = 2,
+                                        "Human Development Index"= 3,
+                                        "Life Expectancy" = 4,
+                                        "Education Index" = 5,
+                                        "Gross National Income"= 6
+                            ),
+                            selected = 2),
+
+
+
 
                 selectInput("xvar",
                             label = "HD indicator (X)",
@@ -67,18 +80,8 @@ shinyUI(fluidPage(theme = "bootstrap.css",
                                         ),
                             selected = 5),
 
-                selectInput("yvar",
-                                    label = "HD indicator (Y)",
-                                    choices = c("Human Development Rank" = 2,
-                                                "Human Development Index"= 3,
-                                                "Life Expectancy" = 4,
-                                                "Education Index" = 5,
-                                                "Gross National Income"= 6
-                                                ),
-                                    selected = 3),
-
                 selectInput("svar",
-                            label = "HD indicator (bubble size)",
+                            label = "HD indicator (Z)",
                             choices = c("Human Development Rank" = 2,
                                         "Human Development Index"= 3,
                                         "Life Expectancy" = 4,
